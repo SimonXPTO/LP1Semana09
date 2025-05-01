@@ -6,11 +6,11 @@ classDiagram
     Animal <|-- Cat
     Animal <|-- Bat
     Animal <|-- Bee
-    IMammal <|-- Dog
-    IMammal <|-- Cat
-    IMammal <|-- Bat
-    ICanFly <|-- Bat
-    ICanFly <|-- Bee
+    IMammal <.. Dog
+    IMammal <.. Cat
+    IMammal <.. Bat
+    ICanFly <.. Bat
+    ICanFly <.. Bee
 
     class Animal {
         +Sound() string
@@ -32,11 +32,11 @@ classDiagram
         +Sound() string
     }
 
-    class IMammal{
-        +NumberOfNipples: int <<readOnly>>
-    }
+    <<interface>> IMammal
+    IMammal : +NumberOfNipples
+
+    <<interface>> ICanFly 
+    ICanFly: +NumberOfWings
     
-    class ICanFly {
-        +NumberOfWings: int <<readOnly>>
-    }
+
 ```
